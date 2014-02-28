@@ -4,42 +4,6 @@
 #include <opencv2/opencv.hpp>
 #include <omp.h>
 
-#ifdef _DEBUG
-//#pragma comment(lib, "opencv_video245d.lib")
-//#pragma comment(lib, "opencv_ts245d.lib")
-//#pragma comment(lib, "opencv_stitching245d.lib")
-//#pragma comment(lib, "opencv_photo245d.lib")
-//#pragma comment(lib, "opencv_objdetect245d.lib")
-//#pragma comment(lib, "opencv_ml245d.lib")
-//#pragma comment(lib, "opencv_legacy245d.lib")
-#pragma comment(lib, "opencv_imgproc245d.lib")
-#pragma comment(lib, "opencv_highgui245d.lib")
-//#pragma comment(lib, "opencv_haartraining_engine.lib")
-//#pragma comment(lib, "opencv_gpu245d.lib")
-//#pragma comment(lib, "opencv_flann245d.lib")
-//#pragma comment(lib, "opencv_features2d245d.lib")
-#pragma comment(lib, "opencv_core245d.lib")
-#pragma comment(lib, "opencv_contrib245d.lib")
-#pragma comment(lib, "opencv_calib3d245d.lib")
-#else
-//#pragma comment(lib, "opencv_video245.lib")
-//#pragma comment(lib, "opencv_ts245.lib")
-//#pragma comment(lib, "opencv_stitching245.lib")
-//#pragma comment(lib, "opencv_photo245.lib")
-//#pragma comment(lib, "opencv_objdetect245.lib")
-//#pragma comment(lib, "opencv_ml245.lib")
-//#pragma comment(lib, "opencv_legacy245.lib")
-#pragma comment(lib, "opencv_imgproc245.lib")
-#pragma comment(lib, "opencv_highgui245.lib")
-//#pragma comment(lib, "opencv_haartraining_engine.lib")
-//#pragma comment(lib, "opencv_gpu245.lib")
-//#pragma comment(lib, "opencv_flann245.lib")
-//#pragma comment(lib, "opencv_features2d245.lib")
-#pragma comment(lib, "opencv_core245.lib")
-#pragma comment(lib, "opencv_contrib245.lib")
-#pragma comment(lib, "opencv_calib3d245.lib")
-#endif
-
 void jointNearestTest()
 {
 	string srcimagedir = "./dataset/kinect/meeting_small_1_1.png";
@@ -889,42 +853,42 @@ void testTrilateral()
 		Mat ssewcgf;
 		{
 			CalcTime t("SSE Trilateral gray gray  8u");
-			cout<<format("s: %d g%d\n",src.channels(),guide.channels());
+			cout<<std::endl;format("s: %d g%d\n",src.channels(),guide.channels());
 			trilateralWeightMap(src, guide,ssewgg,Size(d,d),sc,sc2,ss,BILATERAL_NORMAL,cv::BORDER_REPLICATE);
 		}
 		{
 			CalcTime t("SSE Trilateral color color  8u");
-			cout<<format("s: %d g%d\n",guidec.channels(),guidec.channels());
+			cout<<std::endl;format("s: %d g%d\n",guidec.channels(),guidec.channels());
 			trilateralWeightMap(guidec, guidec,ssewcc,Size(d,d),sc,sc2,ss,BILATERAL_NORMAL,cv::BORDER_REPLICATE);
 		}
 		{
 			CalcTime t("SSE Trilateral gray color  8u");
-			cout<<format("s: %d g%d\n",src.channels(),guidec.channels());
+			cout<<std::endl;format("s: %d g%d\n",src.channels(),guidec.channels());
 			trilateralWeightMap(src, guidec,ssewgc,Size(d,d),sc,sc2,ss,BILATERAL_NORMAL,cv::BORDER_REPLICATE);
 		}
 		{
 			CalcTime t("SSE Trilateral color gray  8u");
-			cout<<format("s: %d g%d\n",guidec.channels(),src.channels());
+			cout<<std::endl;format("s: %d g%d\n",guidec.channels(),src.channels());
 			trilateralWeightMap(guidec, src,ssewcg,Size(d,d),sc,sc2,ss,BILATERAL_NORMAL,cv::BORDER_REPLICATE);
 		}
 		{
 			CalcTime t("SSE Trilateral gray gray  32f");
-			cout<<format("s: %d g%d\n",srcf.channels(),guidef.channels());
+			cout<<std::endl;format("s: %d g%d\n",srcf.channels(),guidef.channels());
 			trilateralWeightMap(srcf, guidef,ssewggf,Size(d,d),sc,sc2,ss,BILATERAL_NORMAL,cv::BORDER_REPLICATE);
 		}
 		{
 			CalcTime t("SSE Trilateral color color  32f");
-			cout<<format("s: %d g%d\n",guidecf.channels(),guidecf.channels());
+			cout<<std::endl;format("s: %d g%d\n",guidecf.channels(),guidecf.channels());
 			trilateralWeightMap(guidecf, guidecf,ssewccf,Size(d,d),sc,sc2,ss,BILATERAL_NORMAL,cv::BORDER_REPLICATE);
 		}
 		{
 			CalcTime t("SSE Trilateral gray color  32f");
-			cout<<format("s: %d g%d\n",srcf.channels(),guidecf.channels());
+			cout<<std::endl;format("s: %d g%d\n",srcf.channels(),guidecf.channels());
 			trilateralWeightMap(srcf, guidecf,ssewgcf,Size(d,d),sc,sc2,ss,BILATERAL_NORMAL,cv::BORDER_REPLICATE);
 		}
 		{
 			CalcTime t("SSE Trilateral color gray  32f");
-			cout<<format("s: %d g%d\n",guidecf.channels(),srcf.channels());
+			cout<<std::endl;format("s: %d g%d\n",guidecf.channels(),srcf.channels());
 			trilateralWeightMap(guidecf, srcf,ssewcgf,Size(d,d),sc,sc2,ss,BILATERAL_NORMAL,cv::BORDER_REPLICATE);
 		}
 
